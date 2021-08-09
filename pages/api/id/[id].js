@@ -15,7 +15,6 @@ export default async function getId(req, res) {
         AND availability.domain = pixelmap.domain
     `, theId);
 
-    // do a little cleanup
     const returnObj = theObject[0] || {};
     res.json(returnObj);
 } 

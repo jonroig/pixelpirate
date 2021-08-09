@@ -6,11 +6,11 @@ const Nav = () => {
       <Link href="/">
         <a>Index</a>
       </Link>
-      <Link href="/ssg">
-        <a>SSG</a>
+      <Link href="/pixelblocks">
+        <a>pixelblocks</a>
       </Link>
-      <Link href="/ssr">
-        <a>SSR</a>
+      <Link href="/status">
+        <a>status</a>
       </Link>
       <style jsx>
         {`

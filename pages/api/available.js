@@ -13,5 +13,6 @@ export default async function getAvailable(req, res) {
         AND resolves.pixelmapId = pixelmap.id
         AND availability.domain = pixelmap.domain
     `);
+    
     res.json(available);
 } 

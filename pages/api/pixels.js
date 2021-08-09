@@ -13,7 +13,6 @@ export default async function getAll(req, res) {
         WHERE resolves.pixelmapId = pixelmap.id
         AND availability.domain = pixelmap.domain
     `);
-
-    // do a little cleanup
+    
     res.json(theObject);
 } 

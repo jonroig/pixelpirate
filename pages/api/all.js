@@ -14,6 +14,5 @@ export default async function getAll(req, res) {
         AND availability.domain = pixelmap.domain
     `);
 
-    // do a little cleanup
     res.json(theObject);
 } 

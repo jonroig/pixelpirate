@@ -26,7 +26,6 @@ export default async function getId(req, res) {
         AND ? <= pixelmap.y2
     `, locX, locX, locY, locY);
 
-    // do a little cleanup
     const returnObj = theObject[0] || {};
     res.json(returnObj);
 } 
