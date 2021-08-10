@@ -6,7 +6,7 @@ const Pixelblock = (pixelObj) => {
         <div key={pixelObj.id} className={"mdhpItem"}>
             {pixelObj.title}
         </div>
-    )
+    );
 };
 
 export default Pixelblock;

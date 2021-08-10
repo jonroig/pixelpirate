@@ -1,29 +1,36 @@
-import { Children } from 'react'
+import { Children } from 'react';
 import { connect } from 'react-redux';
 
-import Nav from './nav'
 import pixelPirateApi from '../api/pixelpirate-api';
-import store from '../store'
+import store from '../store';
+import Nav from './nav';
+import PageHead from './pageHead';
+import PageFooter from './PageFooter';
 
-const Page = ({pixelList, children }) => {
+const name = 'Jon';
+export const siteTitle = 'PixelPirate';
 
-  if (!pixelList || !pixelList.isLoaded || pixelList.isUpdating || !pixelList.value) {
-    return (
-      <>
-        <Nav />
-        <p>
-          Loading...
-        </p>
-      </>
-    )
-  }
-    
+
+const Page = ({ pageDescription, pageTitle, pathUrl, pixelList, children }) => {
+  
+  const isLoading = (!pixelList || !pixelList.isLoaded || pixelList.isUpdating || !pixelList.value);
   return (
     <>
+      <PageHead 
+        pageTitle={pageTitle} 
+        pageDescription={pageDescription}
+        pathUrl={pathUrl}
+      />
       <Nav />
+      {isLoading && (
+        <p>Loading...</p>
+      )}
+      <div className='container'>
       {children}
+      </div>
+      <PageFooter/>
     </>
-  )
+  );
 }
 
 const mapStateToProps = (state, props) => {
@@ -32,4 +39,7 @@ const mapStateToProps = (state, props) => {
   };
 };
 
+
 export default connect(mapStateToProps)(Page);
+
+

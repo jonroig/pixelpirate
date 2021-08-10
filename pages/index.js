@@ -1,16 +1,35 @@
+import { connect } from 'react-redux';
+import Link from 'next/link';
+
+import pixelPirateApi from '../api/pixelpirate-api';
+import store from '../store';
 import Page from '../components/page'
 
-export default function Index() {
+
+const pageTitle = 'Register Expired MillionDollarHomepage domains / Steal MillionDollarHomepage pixels';
+
+export function Index({pixelList, pathUrl}) {
+
+  if (!pixelList || !pixelList.isLoaded) {
+    return (<></>);
+}
+
+  const {totalBlockCount, totalDomains, totalAvailable} = pixelList.value;
   return (
-    <Page>
+    <Page 
+      pageTitle={pageTitle}
+      pathUrl={pathUrl}
+    >
       <h2>Steal Internet History!</h2>
+      <h3>Register expired MillionDollarHomepage domains!</h3>
       <p>
         Scroll around! Click! <strong><a href="/faq" title="PixelPirate Frequently Asked Questions">FAQ</a></strong>
       </p>
       <p>
-        The <a href="http://MillionDollarHomepage.com" title="MillionDollarHomepage" target="_blank" rel="noopener">MillionDollarHomepage</a>: <a href="/status" title="Current MillionDollarHomepage status">1,000,000 pixels. 
-        BLAHBLAH distinct blocks.
-        BLAHBLAH unique domains.</a>
+        The <a href="http://MillionDollarHomepage.com" title="MillionDollarHomepage" target="_blank" rel="noopener">MillionDollarHomepage</a>: 
+        {' '}<Link href="/status" title="Current MillionDollarHomepage status"><a>1,000,000 pixels. 
+        {' '}{totalBlockCount} distinct blocks.
+        {' '}{totalDomains} unique domains.</a></Link>{' '}
         At $1/pixel, the project raised 1,000,000 dollars.
       </p>
       <p>
@@ -30,7 +49,10 @@ export default function Index() {
       </p>
       <p>
         With the help of PixelPirate's
-        revolutionary <a href="/api" title="MillionDollarHomepage As A Service (MDHAAS) Documentation">MillionDollarHomepage As A Service (MDHPAAS)</a>
+        revolutionary
+        {' '}
+        <Link href="/mdhpaas" ><a title="MillionDollarHomepage As A Service (MDHPAAS) Documentation">MillionDollarHomepage As A Service (MDHPAAS)</a></Link>
+        {' '}
         technology, our band of robot scallywags scour the data seas, always on the lookout
         for domains prematurely sent to Davy Jones' Locker.
       </p>
@@ -38,15 +60,23 @@ export default function Index() {
         Capture the domain, own the Pixels. 
       </p>
       <p>
-        <strong>Learn more: <a href="/faq" title="Learn more about PixelPirate">FAQ</a></strong>
+        <strong>Learn more: <Link href="/faq" ><a title="Learn more about PixelPirate">FAQ</a></Link></strong>
       </p>
-      <div class="sharethis-inline-share-buttons"></div>
-        <br clear="all" /><br clear="all" />
+      <div className="sharethis-inline-share-buttons"></div>
+      <br clear="all" /><br clear="all" />
       <h3>Available Pixel Blocks</h3>
       <p>
-        Our cargo holds contain <a href="/available" title="Available Pixel Blocks">BLAHBLAH domains</a>.
+        Our cargo holds contain <Link href="/available"><a title="Expired MillionDollarHomepage domains">{totalDomains} domains</a></Link>.
         Click on an image to zoom in on a particular Pixel Block's location.
       </p>
     </Page>
   );
 }
+
+const mapStateToProps = (state, props) => {
+  return {
+      pixelList: pixelPirateApi.selectors.getPixels(store.getState())
+  };
+};
+
+export default connect(mapStateToProps)(Index);
