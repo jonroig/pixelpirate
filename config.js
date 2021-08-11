@@ -1,5 +1,6 @@
 const config = {
-    GoogleAnalyticsId: 'SomeIdGoesHere'
+    GoogleAnalyticsId: 'SomeIdGoesHere',
+    cjId: 'someIdGoesHere'
 };
 
 export default config;

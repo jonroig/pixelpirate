@@ -21,10 +21,10 @@ export default function Contact({pathUrl}) {
         </div>
       <p>
         PixelPirate.club was created in 2019 by Jon Roig
-        (<a href="https://twitter.com/runnr_az" rel="noopener" target="_blank" title="Jon Roig on Twitter">@runnr_az</a>)
+        (<a href="https://twitter.com/runnr_az" rel="noreferrer" target="_blank" title="Jon Roig on Twitter">@runnr_az</a>)
         /
         Domain Research Group
-        (<a href="https://twitter.com/emoji_domains" rel="noopener" target="_blank" title="i❤️.ws on Twitter">@emoji_domains</a>)
+        (<a href="https://twitter.com/emoji_domains" rel="noreferrer" target="_blank" title="i❤️.ws on Twitter">@emoji_domains</a>)
       </p>
       <p>
         It was updated to Next.JS in August of 2021 and released on Github.

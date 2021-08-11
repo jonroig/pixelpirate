@@ -4,6 +4,7 @@ import router, { useRouter } from 'next/router';
 
 import pixelPirateApi from '../api/pixelpirate-api';
 import store from '../store';
+import Pixelblock from './pixelblock';
 
 
 const MdhpDisplay = ({pixelList, defaultClick}) => {
@@ -34,6 +35,7 @@ const MdhpDisplay = ({pixelList, defaultClick}) => {
             }
 
             defaultClick = false; 
+            setClickedMode(true);
         }
     }, [pixelList])
 
@@ -60,6 +62,9 @@ const MdhpDisplay = ({pixelList, defaultClick}) => {
 
 
     const handleHover = (e) => {
+        if (clickedMode) {
+            return;
+        }
         const windowScrollY = getWindowScroll();
 
         const x = e.clientX - e.target.offsetLeft + document.getElementById('mobileScrollzone').scrollLeft;
@@ -153,7 +158,6 @@ const MdhpDisplay = ({pixelList, defaultClick}) => {
                 newTop = 0;
             }
             mobileScrollzone.scrollTo(mobileScrollzone.scrollLeft,newTop);
-            console.log('')
         }
 
         if (currentViewport.x1 > pixelObj.x2 || currentViewport.x2 < pixelObj.x1) {
@@ -168,6 +172,10 @@ const MdhpDisplay = ({pixelList, defaultClick}) => {
 
 
     const showHover = () => {
+        if (clickedMode) {
+            return;
+        }
+
         const hoverDiv = document.getElementById('mdhpHover');
         hoverDiv.style.display = 'block';
     }
@@ -193,12 +201,14 @@ const MdhpDisplay = ({pixelList, defaultClick}) => {
                         onMouseLeave={hideHover}
                     />
                  </div>
-                 <div id="mdhpHover" className="text-center">
+                 <div id="mdhpHover">
                      <div>
                         <strong>{hoverContentObj.title}</strong>
                         <br/>
                         {hoverContentObj.available ? (
-                            <span className="green">Available</span>
+                            <>
+                                <span className="green">Available</span>
+                            </>
                         ) : (
                             <span className="red">Not Available</span>
                         )}
@@ -211,10 +221,11 @@ const MdhpDisplay = ({pixelList, defaultClick}) => {
                         <div><small>...click for more info...</small></div>
                      </div>              
                  </div>
-                 <div id="specificData" className={clickedMode ? 'clickShow' : 'clickHide'}>
-                    <h1>{clickedContentObj.title}</h1>
+                 <div className={clickedMode ? 'clickShow' : 'clickHide', 'specificData'}>
+                    <Pixelblock pixelObj={clickedContentObj} />
                 </div>
             </div>
+            <br/><br/><br/>
         </>
     )
 };

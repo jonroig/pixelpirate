@@ -13,15 +13,20 @@ export function Pixelblocks({ pixelList, pathUrl }) {
         return (<></>);
     }
 
+    const pixelblocks = pixelList.value.pixelblocks;
+
     return (
         <Page 
             pageTitle={pageTitle}
             pathUrl={pathUrl}
         >
             <h1>All MillionDollarHomepage Pixelblocks</h1>
-            {pixelList.value.pixelblocks.map(pixelObj => 
-                Pixelblock(pixelObj)
-            )}
+            {pixelblocks.map(pixelObj => (
+                <div className='specificData' key={`pixel${pixelObj.id}`}>
+                    <Pixelblock pixelObj={pixelObj} />
+                    <br/><hr/>
+                </div>
+            ))}
         </Page>
     );
 };

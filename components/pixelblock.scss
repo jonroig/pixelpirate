@@ -1,0 +1,40 @@
+.pixelBlock {
+    word-wrap: break-word;
+    background-color: lightgray;
+    text-align: center;
+
+    h1 {
+        background-color: lightsteelblue;
+        border-width: 1px;
+        border-color: black;
+        border-style: solid;
+    }
+    .specificLeft {
+        width: 50%;
+        text-align: left;
+        float: left;
+        background-color: lightgray;
+        padding-left: 10px;
+        border-width: 0px 0px 1px 0px;
+        border-color: black;
+        border-style: solid;
+    }
+    .specificRight {
+        width: 50%;
+        text-align: right;
+        float: right;
+        background-color: lightgray;
+        padding-right: 10px;
+        border-width: 0px 0px 1px 0px;
+        border-color: black;
+        border-style: solid;
+    }
+
+    .green {
+        color: green;
+    }
+
+    .red {
+        color: red;
+    }
+}

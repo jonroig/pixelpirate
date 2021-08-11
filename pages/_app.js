@@ -6,6 +6,7 @@ import store from '../store'
 
 import '../components/nav.scss';
 import '../components/mdhpDisplay.scss';
+import '../components/pixelblock.scss';
 
 
 export default function PixelPirateApp({ Component, pageProps, pathUrl }) {

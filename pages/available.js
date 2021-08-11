@@ -1,9 +1,42 @@
-import Page from '../components/page'
+import { connect } from 'react-redux';
 
-export default function Available() {
-  return (
-    <Page>
-        
-    </Page>
-  )
+import pixelPirateApi from '../api/pixelpirate-api';
+import store from '../store';
+import Pixelblock from '../components/pixelblock';
+import Page from '../components/page';
+
+
+const pageTitle = 'All MillionDollarHomepage Pixelblocks';
+
+export function Available({ pixelList, pathUrl }) {
+    if (!pixelList || !pixelList.isLoaded) {
+        return (<></>);
+    }
+
+    const pixelblocks = pixelList.value.pixelblocks.filter(pixelObj => (
+      pixelObj.available
+    ));
+
+    return (
+        <Page 
+            pageTitle={pageTitle}
+            pathUrl={pathUrl}
+        >
+            <h1>Expired MillionDollarHomepage Pixelblocks</h1>
+            {pixelblocks.map(pixelObj => (
+                <div className='specificData' key={`pixel${pixelObj.id}`}>
+                    <Pixelblock pixelObj={pixelObj} />
+                    <br/><hr/><br/>
+                </div>
+            ))}
+        </Page>
+    );
 };
+
+const mapStateToProps = (state, props) => {
+    return {
+        pixelList: pixelPirateApi.selectors.getPixels(store.getState())
+    };
+  };
+
+  export default connect(mapStateToProps)(Available);
