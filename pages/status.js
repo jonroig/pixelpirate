@@ -20,6 +20,13 @@ export function Status({pixelList, pathUrl}) {
       pathUrl={pathUrl}
     >
       <h1>MillionDollarHomepage Current Link Status</h1>
+      <div className='text-center'>
+        <img src="/images/milliondollarhomepage.png"
+          id="mdhpImage"
+          alt="MillionDollarHomepage"
+          style={{width: '100%', border: '1px black solid', margin: '20px 20px 20px 0'}}
+        />
+      </div>
       <ul>
         <li>
           <Link href="/pixelblocks"><a title="View all Pixel Blocks">Total Pixel Blocks</a></Link>

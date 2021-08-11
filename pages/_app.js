@@ -5,6 +5,7 @@ import pixelPirateApi from '../api/pixelpirate-api';
 import store from '../store'
 
 import '../components/nav.scss';
+import '../components/mdhpDisplay.scss';
 
 
 export default function PixelPirateApp({ Component, pageProps, pathUrl }) {

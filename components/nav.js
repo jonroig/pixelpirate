@@ -34,8 +34,6 @@ const Nav = () => {
           <a>Contact</a>
         </Link>
       </div>
-      
-      
     </nav>
   )
 }

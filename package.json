@@ -3,7 +3,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
     "cross-fetch": "^3.1.4",
@@ -19,5 +20,9 @@
     "sqlite": "^4.0.23",
     "sqlite3": "^5.0.2"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-next": "^11.0.1"
+  }
 }
