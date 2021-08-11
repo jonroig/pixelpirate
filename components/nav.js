@@ -10,6 +10,10 @@ const Nav = () => {
       </div>
       <br/>
       <div className="links">
+      <Link href="/available">
+          <a>Available</a>
+        </Link>
+        |
         <Link href="/pixelblocks">
           <a>All</a>
         </Link>
@@ -28,10 +32,6 @@ const Nav = () => {
         |
         <Link href="/mdhpaas">
           <a>MDHPAAS</a>
-        </Link>
-        |
-        <Link href="/contact">
-          <a>Contact</a>
         </Link>
       </div>
     </nav>

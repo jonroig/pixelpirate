@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 const PageFooter = () => {
 
     return (
@@ -13,6 +15,10 @@ const PageFooter = () => {
                 <div className="text-muted text-center">
                     <p>
                         &copy; 2021 / <a href="https://jonroig.com" title="Jon Roig dot com">Jon Roig</a>. All wrongs reversed.
+                        <br/>
+                        <Link href="/contact">
+                            <a title="Contact PixelPirate">Contact Us</a>
+                        </Link>
                         <br/>
                         <small>
                             <a href="https://WeirdOneCharacterDomainSuperstore.com" title='WeirdOneCharacterDomainSuperstore : Unusual One Character Domain Names'>WeirdOneCharacterDomainSuperstore : Unusual One Character Domain Names</a>

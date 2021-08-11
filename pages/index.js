@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import pixelPirateApi from '../api/pixelpirate-api';
 import store from '../store';
@@ -10,9 +11,16 @@ import MdhpDisplay from '../components/mdhpDisplay';
 const pageTitle = 'Register Expired MillionDollarHomepage domains / Steal MillionDollarHomepage pixels';
 
 export function Index({pixelList, pathUrl}) {
+  const router = useRouter();
 
   if (!pixelList || !pixelList.isLoaded) {
     return (<></>);
+  }
+
+  let defaultClick = false;
+  // if there's a hash, try and sort it out...
+  if (router.asPath.substr(0,2) === '/#') {
+    defaultClick = router.asPath.substr(2);
   }
 
   const {totalBlockCount, totalDomains, totalAvailable} = pixelList.value;
@@ -21,7 +29,7 @@ export function Index({pixelList, pathUrl}) {
       pageTitle={pageTitle}
       pathUrl={pathUrl}
     >
-      <MdhpDisplay/>
+      <MdhpDisplay defaultClick={defaultClick} />
       <h2>Steal Internet History!</h2>
       <h3>Register expired MillionDollarHomepage domains!</h3>
       <p>
