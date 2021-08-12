@@ -3,9 +3,8 @@
 
 https://pixelpirate.club
 
-Register Expired MillionDollarHomepage Domains!
+... an example of an app built with NextJS, Restify, and Sqlite.
 
-... also, an example of an app built with NextJS, Restify, and Sqlite.
 
 ## Usage
 
