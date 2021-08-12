@@ -42,7 +42,7 @@ const Pixelblock = ({pixelObj}) => {
             <br/>
             {pixelObj.available ? (
                 <>
-                    <a href={registerUrl} title={registerMessage}>{registerMessage}</a>
+                    <a href={registerUrl} target="_blank" rel="nofollow noreferrer" title={registerMessage}>{registerMessage}</a>
                     <br/><br/>
                 </>
             ) : (<></>)}

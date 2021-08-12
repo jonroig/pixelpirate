@@ -13,9 +13,15 @@ export function Available({ pixelList, pathUrl }) {
         return (<></>);
     }
 
-    const pixelblocks = pixelList.value.pixelblocks.filter(pixelObj => (
-      pixelObj.available
-    ));
+    const compareNumbers = (a, b) => {
+        return b.size - a.size;
+    }
+
+    const pixelblocks = pixelList.value.pixelblocks
+        .filter(pixelObj => (
+            pixelObj.available
+        ))
+        .sort(compareNumbers);
 
     return (
         <Page 
