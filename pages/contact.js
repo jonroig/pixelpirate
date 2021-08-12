@@ -10,6 +10,7 @@ export default function Contact({pathUrl}) {
     <Page
       pageTitle={pageTitle}
       pathUrl={pathUrl}
+      pageDescription='Contact the creators of PixelPirate'
     >
       <h1>Contact PixelPirate</h1>
       <div className="text-center">

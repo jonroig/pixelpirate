@@ -18,6 +18,7 @@ export function Faq({pixelList, pathUrl}) {
     <Page
       pageTitle={pageTitle}
       pathUrl={pathUrl}
+      pageDescription='Every day, domains connected to the MillionDollarHomepage expire. Capture the domain, capture the pixels!'
     >
       <h1>PixelPirate FAQ</h1>
       <h2>What is the MillionDollarHomepage?</h2>

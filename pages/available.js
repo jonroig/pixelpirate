@@ -27,6 +27,7 @@ export function Available({ pixelList, pathUrl }) {
         <Page 
             pageTitle={pageTitle}
             pathUrl={pathUrl}
+            pageDescription='Expired MillionDollarHomepage domains available for registration'
         >
             <h1>Expired MillionDollarHomepage Pixelblocks</h1>
             {pixelblocks.map(pixelObj => (

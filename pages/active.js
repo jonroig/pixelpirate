@@ -21,6 +21,7 @@ export function Active({ pixelList, pathUrl }) {
         <Page 
             pageTitle={pageTitle}
             pathUrl={pathUrl}
+            pageDescription='Active MillionDollarHomepage domains which resolve to websites'
         >
             <h1>Active MillionDollarHomepage Pixelblocks</h1>
             {pixelblocks.map(pixelObj => (

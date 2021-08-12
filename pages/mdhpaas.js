@@ -10,6 +10,7 @@ export default function Mdhpaas({pathUrl}) {
     <Page
       pageTitle={pageTitle}
       pathUrl={pathUrl}
+      pageDescription='MillionDollarHomepage-As-A-Service (MDHPAAS) JSON API'
     >
         <h1>JSON API</h1>
         <h2>

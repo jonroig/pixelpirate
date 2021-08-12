@@ -19,6 +19,7 @@ export function Pixelblocks({ pixelList, pathUrl }) {
         <Page 
             pageTitle={pageTitle}
             pathUrl={pathUrl}
+            pageDescription='Every single MillonDollarHomepage pixelblock, explained and cataloged'
         >
             <h1>All MillionDollarHomepage Pixelblocks</h1>
             {pixelblocks.map(pixelObj => (

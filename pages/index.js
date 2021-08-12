@@ -28,6 +28,7 @@ export function Index({pixelList, pathUrl}) {
     <Page 
       pageTitle={pageTitle}
       pathUrl={pathUrl}
+      pageDescription='Every day, domains connected to the MillionDollarHomepage expire. Capture the domain, capture the pixels!'
     >
       <MdhpDisplay defaultClick={defaultClick} />
       <h2>Steal Internet History!</h2>
