@@ -5,7 +5,7 @@ import pixelPirateApi from '../api/pixelpirate-api';
 import store from '../store';
 import Nav from './nav';
 import PageHead from './pageHead';
-import PageFooter from './PageFooter';
+import PageFooter from './pageFooter';
 
 import config from '../config';
 
