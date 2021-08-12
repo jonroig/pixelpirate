@@ -20,6 +20,8 @@ const PageFooter = () => {
                             <a title="Contact PixelPirate">Contact Us</a>
                         </Link>
                         <br/>
+                        <a href="https://github.com/jonroig/pixelpirate" title="Github PixelPirate Repo">Github PixelPirate Repo</a>
+                        <br/>
                         <small>
                             <a href="https://WeirdOneCharacterDomainSuperstore.com" title='WeirdOneCharacterDomainSuperstore : Unusual One Character Domain Names'>WeirdOneCharacterDomainSuperstore : Unusual One Character Domain Names</a>
                             {' '}|{' '}

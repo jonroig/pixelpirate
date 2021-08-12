@@ -32,7 +32,7 @@ const Page = ({ pageDescription, pageTitle, pathUrl, pixelList, children }) => {
       {children}
       </div>
       <PageFooter/>
-      <img src={cjImageUrl} width="1" height="1" border="0"/>
+      <img src={cjImageUrl} width="1" height="1" border="0" alt=''/>
     </>
   );
 }

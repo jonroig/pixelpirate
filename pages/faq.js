@@ -152,10 +152,14 @@ export function Faq({pixelList, pathUrl}) {
         We use
         {' '}<a href="https://github.com/jonroig/emojiurlifier" rel="noreferrer" target="_blank" title="EmojiUrlifier">EmojiUrlifier</a>
         to deliver either emoji or &rdquo;regular&rdquo; domains, as appropriate.
-        {' '}<a href="https://PixelPirate.club" title="PixelPirate.club">PixelPirate.club</a>
+        {' '}<a href="https://PixelPirate.club" title="PixelPirate.club">PixelPirate.club</a>{' '}
         or {' '}<a href="https://☠☠☠☠☠.ws" title="☠☠☠☠☠.ws">☠☠☠☠☠.ws</a>, either way it&rsquo;s cool.
         <br/>
         You should listen to our theme song.
+      </p>
+      <h2>Is there a PixelPirate GitHub Repo</h2>
+      <p>
+        You betcha: <a href="https://github.com/jonroig/pixelpirate" title="Github PixelPirate Repo">Github PixelPirate Repo</a>
       </p>
     </Page>
   )

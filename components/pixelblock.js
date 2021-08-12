@@ -7,8 +7,6 @@ const Pixelblock = ({pixelObj}) => {
     if (Object.getOwnPropertyNames(pixelObj).length === 0) {
         return (<></>);
     }
-    
-    console.log(pixelObj);
 
     const originalCost = `\$${pixelObj.size}.00`;
     const imageUrl = `/images/pixelblocks/${pixelObj.id}.png`;
@@ -22,12 +20,13 @@ const Pixelblock = ({pixelObj}) => {
     const godaddyUrl = 'https://www.godaddy.com/domains/searchresults.aspx?checkAvail=1&tmskey=&domainToCheck=';
     const registerUrl = cjUrl + encodeURIComponent(godaddyUrl + pixelObj.domain);
     const registerMessage = `Register ${pixelObj.domain}!`;
+
     return (
         <div className='pixelBlock'>
             <h1>{pixelObj.title}</h1>
             <Image src={imageUrl} alt={pixelObj.title} height={imageHeight} width={imageWidth}/>
             <br/>
-            <a href={pixelObj.href} title={pixelObj.title} rel="nofollow,noreferrer" target="_blank">{pixelObj.href}</a>
+            <a href={pixelObj.href} title={pixelObj.title} rel="nofollow noreferrer" target="_blank">{pixelObj.href}</a>
             <br/>
             {pixelObj.available ? (
                 <span className="green">Available</span>

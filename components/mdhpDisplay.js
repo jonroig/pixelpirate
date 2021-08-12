@@ -119,6 +119,7 @@ const MdhpDisplay = ({pixelList, defaultClick}) => {
 
         if (clickedMode) {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
+            setClickedContentObj({});
             setClickedMode(false);
             showHover();
             router.push('/');
@@ -225,7 +226,7 @@ const MdhpDisplay = ({pixelList, defaultClick}) => {
                     <Pixelblock pixelObj={clickedContentObj} />
                 </div>
             </div>
-            <br/><br/><br/>
+            
         </>
     )
 };
