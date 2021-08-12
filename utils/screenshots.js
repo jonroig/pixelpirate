@@ -12,6 +12,7 @@ const fetchBrowser = async () => {
   theBrowser = await puppeteer.launch({
     headless: true,
     executablePath: '/usr/bin/google-chrome-stable',
+    // executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
   });
   const browserVersion = await theBrowser.version();
   console.log('Launched browser', browserVersion);
@@ -59,18 +60,18 @@ const grabPage = async (row) => {
       // console.log(content);
 
       if (!content.includes('Cox Communications')) {
-        const opts = {
-          path: `../public/images/screenshots/${row.id}.png`,
-          // omitBackground: true
-          clip: {
-            x: 0,
-            y: 0,
-            width: 1024,
-            height: 768,
-          },
-        };
+        // const opts = {
+        //   path: `../public/images/screenshots/${row.id}.png`,
+        //   // omitBackground: true
+        //   clip: {
+        //     x: 0,
+        //     y: 0,
+        //     width: 1024,
+        //     height: 768,
+        //   },
+        // };
 
-        await page.screenshot(opts);
+        // await page.screenshot(opts);
 
         const deleteSQL = 'DELETE FROM resolves WHERE pixelmapId = ? ';
         db.run(deleteSQL, [row.id], () => {
