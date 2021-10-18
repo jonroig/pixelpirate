@@ -8,8 +8,8 @@ const sleep = require('sleep');
 
 const db = new sqlite3.Database('../db/mdhp.db');
 
-const apiKey = 'somekey';
-const apiSecret = 'somesecret';
+const apiKey = 'blah';
+const apiSecret = 'blah';
 
 const checkAvailable = async (rowChunk) => {
     return new Promise((resolve, reject) => {
@@ -56,7 +56,7 @@ const checkAvailable = async (rowChunk) => {
         })
         .catch((err) => {
           console.log('fail');
-          checkAvailable(rowChunk);
+          reject();
         });
       } catch (err) {
         reject();
@@ -83,12 +83,15 @@ const selectDomains = async () => {
       });
 
       let checked = false;
-
-      try{
-        await checkAvailable(rowChunk);
-      } catch (err) {
-        console.log('error1');
+      while (checked === false) {
+        try{
+          await checkAvailable(rowChunk);
+          checked = true;
+        } catch (err) {
+          console.log('error1');
+        }
       }
+      
   
       
         // if (i > 1535) {
