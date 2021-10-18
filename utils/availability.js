@@ -54,7 +54,7 @@ const checkAvailable = async (rowChunk) => {
           resolve();
         });
       } catch (err) {
-          await checkAvailable(rowChunk);
+          checkAvailable(rowChunk);
         resolve();
       }
     });
