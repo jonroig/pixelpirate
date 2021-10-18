@@ -52,10 +52,13 @@ const checkAvailable = async (rowChunk) => {
           }
 
           resolve();
+        })
+        .catch((err) => {
+          console.log('fail');
+          await checkAvailable(rowChunk);
         });
       } catch (err) {
-          checkAvailable(rowChunk);
-        resolve();
+        
       }
     });
 };
