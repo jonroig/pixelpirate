@@ -54,11 +54,7 @@ const checkAvailable = async (rowChunk) => {
           resolve();
         });
       } catch (err) {
-          // const deleteSQL = 'DELETE FROM availability WHERE domain = ? ';
-          // db.run(deleteSQL, [theDomain], () => {
-          //   const insertSQL = 'INSERT INTO availability (domain, available ) VALUES (?, 0)';
-          //   db.run(insertSQL, [theDomain])
-          // });
+          await checkAvailable(rowChunk);
         resolve();
       }
     });
@@ -84,14 +80,7 @@ const selectDomains = async () => {
 
       let checked = false;
 
-      while (checkAvailable === false) {
-        try {
-          await checkAvailable(rowChunk);
-          checked = true;
-        } catch (e) {
-          sleep(50);
-        }
-      }
+      await checkAvailable(rowChunk);
       
       
         // if (i > 1535) {
