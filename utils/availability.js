@@ -56,7 +56,7 @@ const checkAvailable = async (rowChunk) => {
         })
         .catch((err) => {
           console.log('fail');
-          await checkAvailable(rowChunk);
+          checkAvailable(rowChunk);
         });
       } catch (err) {
         reject();
