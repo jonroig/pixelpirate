@@ -66,10 +66,10 @@ const checkAvailable = async (rowChunk) => {
 
 const selectDomains = async () => {
   let count = 0;
-  const selectSQL = "SELECT DISTINCT domain FROM pixelmap";
+  const selectSQL = "SELECT DISTINCT domain FROM pixelmap ORDER BY RANDOM()";
   db.all(selectSQL, [], async (err, rows) => {
 
-    const lookupSize = 250;
+    const lookupSize = 25;
     for (let i = 0; i < Math.ceil(rows.length/lookupSize); i++) {
       const begin = i * lookupSize;
       const end = (i * lookupSize) + lookupSize;
@@ -80,8 +80,20 @@ const selectDomains = async () => {
       rowChunk.forEach(row => {
         count++;
         console.log(count, row);
-      })
-      await checkAvailable(rowChunk);
+      });
+
+      let checked = false;
+
+      while (checkAvailable === false) {
+        try {
+          await checkAvailable(rowChunk);
+          checked = true;
+        } catch (e) {
+          sleep(50);
+        }
+      }
+      
+      
         // if (i > 1535) {
           // await checkAvailable(rows[i].domain);
         // }
