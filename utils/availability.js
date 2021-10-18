@@ -1,14 +1,15 @@
 // really basic tool to figure out what's available for registration
 // you'll need to get an API key from developer.godaddy.com to use the availablity API
 
+
 const sqlite3 = require('sqlite3').verbose();
 const rp = require('request-promise');
 const sleep = require('sleep');
 
 const db = new sqlite3.Database('../db/mdhp.db');
 
-const apiKey = 'someApiKey';
-const apiSecret = 'someApiSecret';
+const apiKey = 'somekey';
+const apiSecret = 'somesecret';
 
 const checkAvailable = async (rowChunk) => {
     return new Promise((resolve, reject) => {
@@ -58,7 +59,7 @@ const checkAvailable = async (rowChunk) => {
           await checkAvailable(rowChunk);
         });
       } catch (err) {
-        
+        reject();
       }
     });
 };
@@ -83,8 +84,12 @@ const selectDomains = async () => {
 
       let checked = false;
 
-      await checkAvailable(rowChunk);
-      
+      try{
+        await checkAvailable(rowChunk);
+      } catch (err) {
+        console.log('error1');
+      }
+  
       
         // if (i > 1535) {
           // await checkAvailable(rows[i].domain);
